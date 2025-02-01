@@ -27,7 +27,7 @@ const Header = () => {
         <Moon/>
       </Button>
       <Link to={"/sign-in"} className='flex gap-2'>
-      <Button className='h-10  sm:inline' outline>login</Button>
+      <Button className='h-10  sm:inline' color='blue'>signin</Button>
       {/* <Button className='h-10 hidden sm:inline'>signup</Button> */}
       </Link>
       <Navbar.Toggle/>
@@ -50,8 +50,8 @@ const Header = () => {
           <div>Projects</div>
           </Link>
         </Navbar.Link>
-        <Navbar.Link className='hover:bg-gray-400 w-20 mt-2 text-center bg-blue-700 rounded-md' active={path=="/sign-in"}as={"span"}>
-          <Link to={"/sign-in"}>
+        <Navbar.Link className='hover:bg-gray-400 md:hidden w-20 mt-2 text-center bg-blue-700 rounded-md' active={path=="/sign-in"}as={"span"}>
+          <Link to={"/sign-up"}>
           Login
           </Link>
         </Navbar.Link>
