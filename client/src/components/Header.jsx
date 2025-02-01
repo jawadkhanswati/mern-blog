@@ -1,5 +1,4 @@
 import { Moon, Search } from 'lucide-react'
-import  { useState } from 'react'
 import { Link,useLocation } from 'react-router-dom'
 import { Button, Navbar, TextInput } from 'flowbite-react'
 
@@ -28,7 +27,7 @@ const Header = () => {
         <Moon/>
       </Button>
       <Link to={"/sign-in"} className='flex gap-2'>
-      <Button className='h-10  sm:inline'>login</Button>
+      <Button className='h-10  sm:inline' outline>login</Button>
       {/* <Button className='h-10 hidden sm:inline'>signup</Button> */}
       </Link>
       <Navbar.Toggle/>
