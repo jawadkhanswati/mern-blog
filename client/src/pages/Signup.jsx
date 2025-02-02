@@ -1,8 +1,35 @@
-import {Link} from "react-router-dom"
-
+import {Link, useNavigate} from "react-router-dom"
 import { Button, Label, TextInput } from "flowbite-react"
+import { useState } from "react"
+import {toast} from "react-hot-toast"
+import { axiosInstance } from "../lib/axios"
+import { Loader } from "lucide-react"
 
 const Signup = () => {
+
+  const navigate=useNavigate()
+
+  const [formdata,setformdata]=useState({})
+  const [loading,setloading]=useState(false)
+  const handlechange=(e)=>{
+    setformdata({...formdata,[e.target.name]:e.target.value})
+  }
+
+  const handlesubmit=async(e)=>{
+    e.preventDefault()
+    setloading(true)
+    try {
+    const res= await axiosInstance.post("/auth/signup",formdata)
+    if(res.data){
+      toast.success(res.data.message)
+      navigate("/sign-in")
+      setloading(false)
+    }
+    } catch (error) {
+      setloading(false)
+      toast.error(error.response.data.message)
+    }
+  }
   return (
     <div className="min-h-screen mx-9 mt-20">
     <div className="flex p-3 py-8 border bg-gray-100 max-w-4xl flex-col md:flex-row mx-auto md:items-center">
@@ -16,20 +43,26 @@ const Signup = () => {
 
       {/* right */}
       <div className="mt-8 flex-1">
-        <form className="flex flex-col gap-4">
+        <form onSubmit={handlesubmit} className="flex flex-col gap-4">
           <div>
             <Label htmlFor="username" value="Username"/>
-            <TextInput type="text" placeholder="Username" id="username"/>
+            <TextInput autoComplete="" name="username" type="text" placeholder="Username" onChange={handlechange} id="username"/>
           </div>
           <div>
             <Label htmlFor="email" value="Email"/>
-            <TextInput type="text" placeholder="Email@company.com" id="email"/>
+            <TextInput name="email" autoComplete="" type="email" onChange={handlechange} placeholder="Email@company.com" id="email"/>
           </div>
           <div>
             <Label htmlFor="password" value="Password"/>
-            <TextInput type="text" placeholder="Password" id="password"/>
+            <TextInput autoComplete="" type="password" placeholder="Password" name="password" onChange={handlechange} id="password"/>
           </div>
-          <Button size="xl" className="mt-3" gradientDuoTone="purpleToPink" type="submit">Sign up</Button>
+          {
+            loading?(
+              <Button size="xl" className="mt-3" gradientDuoTone="purpleToPink" type="submit" disabled={loading}>loading <Loader className="animate-spin"/></Button>
+            ):(
+              <Button size="xl" className="mt-3" gradientDuoTone="purpleToPink" type="submit">Sign up</Button>
+            )
+          }
          
 
         </form>

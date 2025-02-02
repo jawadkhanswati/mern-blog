@@ -6,7 +6,7 @@ export const signup=async(req,res)=>{
     if(!username.trim() ||!email.trim()||!password.trim() ||username==""||email==""||password==""){
         return res.status(400).json({message:"all feilds are required"})
     }
-
+   
     let finduser=await User.findOne({username})
     if(finduser){
         return res.status(500).json({message:"username already exists"})
