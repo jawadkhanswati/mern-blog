@@ -26,8 +26,13 @@ const Header = () => {
       <Button className='w-10 h-10  sm:visible' pill color='gray'>
         <Moon/>
       </Button>
+<<<<<<< HEAD
       <Link to={"/sign-up"} className='flex gap-2'>
       <Button className='h-10  sm:inline my-auto' color='blue'>signup</Button>
+=======
+      <Link to={"/sign-in"} className='flex gap-2'>
+      <Button className='h-10  sm:inline' outline>login</Button>
+>>>>>>> b20743e75ed5334c07b5421305bd1afb690e0b42
       {/* <Button className='h-10 hidden sm:inline'>signup</Button> */}
       </Link>
       <Navbar.Toggle/>
