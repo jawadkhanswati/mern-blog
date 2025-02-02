@@ -30,7 +30,7 @@ const Signup = () => {
             <TextInput type="text" placeholder="Password" id="password"/>
           </div>
           <Button size="xl" className="mt-3" gradientDuoTone="purpleToPink" type="submit">Sign up</Button>
-          <Button size="xl" className="" gradientDuoTone="purpleToPink" type="submit">Sign up</Button>
+         
 
         </form>
         <p className="mt-5 text-sm">have an account? <Link className="text-blue-700" to={"/signin"}>sign In?</Link></p>
