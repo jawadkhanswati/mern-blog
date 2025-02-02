@@ -5,21 +5,14 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.9.6"
-<<<<<<< HEAD
-=======
-    
-    
->>>>>>> b20743e75ed5334c07b5421305bd1afb690e0b42
   },
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-<<<<<<< HEAD
-  "type": "module",
-=======
+
   "type":"module",
   "devDependencies": {},
->>>>>>> b20743e75ed5334c07b5421305bd1afb690e0b42
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
