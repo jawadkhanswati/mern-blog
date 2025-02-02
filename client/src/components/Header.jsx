@@ -26,8 +26,8 @@ const Header = () => {
       <Button className='w-10 h-10  sm:visible' pill color='gray'>
         <Moon/>
       </Button>
-      <Link to={"/sign-in"} className='flex gap-2'>
-      <Button className='h-10  sm:inline' color='blue'>signin</Button>
+      <Link to={"/sign-up"} className='flex gap-2'>
+      <Button className='h-10  sm:inline my-auto' color='blue'>signup</Button>
       {/* <Button className='h-10 hidden sm:inline'>signup</Button> */}
       </Link>
       <Navbar.Toggle/>
@@ -51,7 +51,7 @@ const Header = () => {
           </Link>
         </Navbar.Link>
         <Navbar.Link className='hover:bg-gray-400 md:hidden w-20 mt-2 text-center bg-blue-700 rounded-md' active={path=="/sign-in"}as={"span"}>
-          <Link to={"/sign-up"}>
+          <Link to={"/sign-in"}>
           Login
           </Link>
         </Navbar.Link>
