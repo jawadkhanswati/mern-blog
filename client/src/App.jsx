@@ -11,8 +11,13 @@ import Footer from "./components/Footer"
 
 const App = () => {
   return (
+   
+
     <BrowserRouter>
     <Header/>
+    <div  className="flex flex-col justify-between  min-h-screen">
+  
+
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
@@ -21,9 +26,17 @@ const App = () => {
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/projects" element={<Projects/>}/>
     </Routes>
+  
+  
+  <div className="mt-auto">
     <Footer/>
+  </div>
+    </div>
+
+    
     <Toaster/>
     </BrowserRouter>
+   
   )
 }
 

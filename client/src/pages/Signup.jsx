@@ -31,7 +31,7 @@ const Signup = () => {
     }
   }
   return (
-    <div className="min-h-screen mx-9 mt-20">
+    <div className="mx-9 mt-20">
     <div className="flex p-3 py-8 border bg-gray-100 max-w-4xl flex-col md:flex-row mx-auto md:items-center">
       {/* left */}
       <div className="flex-1 px-5">
@@ -66,7 +66,7 @@ const Signup = () => {
          
 
         </form>
-        <p className="mt-5 text-sm">have an account? <Link className="text-blue-700" to={"/signin"}>sign In?</Link></p>
+        <p className="mt-5 text-sm">have an account? <Link className="text-blue-700" to={"/sign-in"}>sign In?</Link></p>
       </div>
     </div>
     </div>
