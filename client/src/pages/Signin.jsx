@@ -4,30 +4,34 @@ import { useState } from "react"
 import {toast} from "react-hot-toast"
 import { axiosInstance } from "../lib/axios"
 import { Loader } from "lucide-react"
+import { signinStart,signinSuccess,signInfailure } from "../redux/user/userSlice"
+import { useDispatch,useSelector } from "react-redux"
 
 const Signin = () => {
-  
+  const dispatch=useDispatch()
+  const {loading}=useSelector(state=>state.user)
+
   const navigate=useNavigate()
 
   const [formdata,setformdata]=useState({})
-  const [loading,setloading]=useState(false)
+   
   const handlechange=(e)=>{
     setformdata({...formdata,[e.target.name]:e.target.value})
   }
 
   const handlesubmit=async(e)=>{
     e.preventDefault()
-    setloading(true)
+   dispatch(signinStart())
     try {
     const res= await axiosInstance.post("/auth/signin",formdata)
     if(res.data){
       toast.success(res.data.message)
+      dispatch(signinSuccess(res.data))
       navigate("/sign-up")
-      setloading(false)
     }
-    } catch (error) {
-      setloading(false)
-      toast.error(error.response.data.message)
+    } catch (err) {
+     dispatch(signInfailure(err.response.data.message))
+      toast.error(err.response.data.message)
     }
   }
   return (
@@ -36,7 +40,7 @@ const Signin = () => {
       {/* left */}
       <div className="flex-1 px-5">
       <div to={"/"} className='text-4xl text-center md:text-start font-bold dark:text-white'>
-    <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 rounded-md font-bold text-white">jawad's</span>Blog
+    <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 rounded-md font-bold text-white">{"jawad's"}</span>Blog
     </div>
     <p className="text-sm text-center mt-5 md:text-start">This is Demo Project For Practice My Mern skills You can sign up with your email and password OR with Google</p>
       </div>

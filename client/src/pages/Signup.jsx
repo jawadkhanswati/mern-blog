@@ -36,7 +36,7 @@ const Signup = () => {
       {/* left */}
       <div className="flex-1 px-5">
       <div to={"/"} className='text-4xl text-center md:text-start font-bold dark:text-white'>
-    <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 rounded-md font-bold text-white">jawad's</span>Blog
+    <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 rounded-md font-bold text-white">{"jawad's"}</span>Blog
     </div>
     <p className="text-sm text-center mt-5 md:text-start">This is Demo Project For Practice My Mern skills You can sign up with your email and password OR with Google</p>
       </div>
