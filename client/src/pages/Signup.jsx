@@ -4,6 +4,7 @@ import { useState } from "react"
 import {toast} from "react-hot-toast"
 import { axiosInstance } from "../lib/axios"
 import { Loader } from "lucide-react"
+import OAuth from "../components/OAuth"
 
 const Signup = () => {
 
@@ -63,7 +64,7 @@ const Signup = () => {
               <Button size="xl" className="mt-3" gradientDuoTone="purpleToPink" type="submit">Sign up</Button>
             )
           }
-         
+         <OAuth/>
 
         </form>
         <p className="mt-5 text-sm">have an account? <Link className="text-blue-700" to={"/sign-in"}>sign In?</Link></p>

@@ -6,6 +6,7 @@ import { axiosInstance } from "../lib/axios"
 import { Loader } from "lucide-react"
 import { signinStart,signinSuccess,signInfailure } from "../redux/user/userSlice"
 import { useDispatch,useSelector } from "react-redux"
+import OAuth from "../components/OAuth"
 
 const Signin = () => {
   const dispatch=useDispatch()
@@ -64,6 +65,7 @@ const Signin = () => {
               <Button size="xl" className="mt-3" gradientDuoTone="purpleToPink" type="submit">Sign in</Button>
             )
           }
+          <OAuth/>
          
 
         </form>

@@ -15,7 +15,7 @@ const App = () => {
 
     <BrowserRouter>
     <Header/>
-    <div  className="flex flex-col justify-between  min-h-screen">
+    <div  className="flex flex-col gap-9 justify-between  min-h-screen">
   
 
     <Routes>

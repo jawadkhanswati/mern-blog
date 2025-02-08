@@ -1,9 +1,12 @@
-import { Moon, Search } from 'lucide-react'
+import { ArrowRight, Moon, Search } from 'lucide-react'
 import { Link,useLocation } from 'react-router-dom'
-import { Button, Navbar, TextInput } from 'flowbite-react'
+import { Avatar, Button, Dropdown, Navbar, TextInput } from 'flowbite-react'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
   const path=useLocation().pathname
+  const {currentUser}=useSelector(state=>state.user)
+  console.log(currentUser)
   return (
   <Navbar className='border-b-2'>
     <Link to={"/"} className='self-center whitespace-nowrap text-sm sm:text-xl  font-bold dark:white'>
@@ -26,10 +29,32 @@ const Header = () => {
       <Button className='w-10 h-10  sm:visible' pill color='gray'>
         <Moon/>
       </Button>
+      {
+        currentUser?(
+          <Dropdown arrowIcon={false} inline label={<Avatar
+          alt='user'
+          img={currentUser.profilePicture}
+          />}>
+        <Dropdown.Header>
+          <span className='block text-sm'>@{currentUser?.user?.username}</span>
+          <span className='block text-sm font-medium truncate'>@{currentUser?.user?.email}</span>
+        </Dropdown.Header>
+        <Link to={"/dashboard?tab=profile"}>
+        <Dropdown.Item>Profile</Dropdown.Item>
+        </Link>
+        <Dropdown.Divider/>
+        <Dropdown.Item>Sign Out <ArrowRight size={20} className='ml-3'/></Dropdown.Item>
+          </Dropdown>
+          
+        ):(
+       
       <Link to={"/sign-up"} className='flex gap-2'>
       <Button className='h-10  sm:inline my-auto' color='blue'>signup</Button>
       {/* <Button className='h-10 hidden sm:inline'>signup</Button> */}
       </Link>
+       
+        )
+      }
       <Navbar.Toggle/>
     </div>
       <Navbar.Collapse className=''>
@@ -50,11 +75,16 @@ const Header = () => {
           <div>Projects</div>
           </Link>
         </Navbar.Link>
+        {
+          !currentUser&&(
         <Navbar.Link className='hover:bg-gray-400 md:hidden w-20 mt-2 text-center bg-blue-700 rounded-md' active={path=="/sign-in"}as={"span"}>
           <Link to={"/sign-in"}>
           Login
           </Link>
         </Navbar.Link>
+
+          )
+        }
       </Navbar.Collapse>
   </Navbar>
   )

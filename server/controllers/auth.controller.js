@@ -52,7 +52,8 @@ export const signin=async(req,res)=>{
        
        res.status(200).json({message:"logged in successfully",user:{
         username:user.username,
-        email:user.email
+        email:user.email,
+        profilePicture:user.profilePicture
        }})
     } catch (error) {
         
