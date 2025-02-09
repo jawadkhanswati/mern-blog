@@ -32,8 +32,8 @@ const Signup = () => {
     }
   }
   return (
-    <div className="mx-9 mt-20">
-    <div className="flex p-3 py-8 border bg-gray-100 max-w-4xl flex-col md:flex-row mx-auto md:items-center">
+    <div className="mx-9 dark:bg-[rgb(16,23,42)] mt-20">
+    <div className="flex p-3 py-8  dark:bg-[rgb(16,23,42)] bg-gray-100 max-w-4xl flex-col md:flex-row mx-auto md:items-center">
       {/* left */}
       <div className="flex-1 px-5">
       <div to={"/"} className='text-4xl text-center md:text-start font-bold dark:text-white'>

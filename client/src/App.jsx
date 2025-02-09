@@ -8,6 +8,7 @@ import Projects from "./pages/Projects"
 import Header from "./components/Header"
 import {Toaster} from "react-hot-toast"
 import Footer from "./components/Footer"
+import PrivateRoute from "./components/PrivateRoute"
 
 const App = () => {
   return (
@@ -23,7 +24,12 @@ const App = () => {
       <Route path="/about" element={<About/>}/>
       <Route path="/sign-up" element={<Signup/>}/>
       <Route path="/sign-in" element={<Signin/>}/>
+
+      {/* private route dashboard */}
+      <Route element={<PrivateRoute/>}>
       <Route path="/dashboard" element={<Dashboard/>}/>
+      </Route>
+
       <Route path="/projects" element={<Projects/>}/>
     </Routes>
   
